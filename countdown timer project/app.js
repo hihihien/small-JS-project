@@ -26,8 +26,8 @@ const giveaway = document.querySelector(".giveaway");
 const deadline = document.querySelector(".deadline");
 const items = document.querySelectorAll(".deadline-format h4");
 
-let tempDate = new Date(2020);
-let tempeYear = tempDate.getFullYear();
+let tempDate = new Date();
+let tempYear = tempDate.getFullYear();
 let tempMonth = tempDate.getMonth();
 let tempDay = tempDate.getDate();
 // month are ZERO index based;
@@ -43,7 +43,7 @@ let month = futureDate.getMonth();
 month = months[month];
 const weekday = weekdays[futureDate.getDay()];
 const date = futureDate.getDate();
-giveaway.textContent = `giveaway ends on ${weekday}, ${date} ${month} ${year} ${hours}:§{minutes}am`;
+giveaway.textContent = `giveaway ends on ${weekday}, ${date} ${month} ${year} ${hours}:${minutes}am`;
 
 const futureTime = futureDate.getTime();
 function getRemaindingTime() {
@@ -67,6 +67,8 @@ function getRemaindingTime() {
 
   // set values array 
   const values = [days, hours, minutes, seconds];
+
+  // add 0 before item if < 10
   function format(item) {
     if (item < 10) {
       return (item = `0${item}`);
@@ -74,7 +76,7 @@ function getRemaindingTime() {
     return item;
   }
 
-  items.forEach(function (item. index) {
+  items.forEach(function (item, index) {
     item.innerHTML = format(values[index]);
   });
 
