@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script>
+        function ShowRadioButtonDiv (IdBaseName, NumberOfButtons) {
+            for (x=1;x<=NumberOfButtons;x++) {
+                CheckThisButton = IdBaseName + x;
+                ThisDiv = IdBaseName + x +'Div';
+            if (document.getElementById(CheckThisButton).checked) {
+                document.getElementById(ThisDiv).style.display = "block";
+                }
+            else {
+                document.getElementById(ThisDiv).style.display = "none";
+                }
+            }
+            return false;
+        }
+    </script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grocery Bud</title>
+    <!-- font-awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <!-- styles -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <FORM STYLE="padding-left:5px">
+        <INPUT TYPE="radio" NAME="RadioGroupName" ID="GroupName1" ONCLICK="ShowRadioButtonDiv('GroupName', 3)"/>Show section 1<BR>
+        <INPUT TYPE="radio" NAME="RadioGroupName" ID="GroupName2" ONCLICK="ShowRadioButtonDiv('GroupName', 3)"/>Show section 2<BR>
+        <INPUT TYPE="radio" NAME="RadioGroupName" ID="GroupName3" ONCLICK="ShowRadioButtonDiv('GroupName', 3)"/>Show section 3<BR>
+    </FORM>
+    <DIV ID="GroupName1Div" STYLE="display:none;">Section 1</DIV>   
+    <DIV ID="GroupName2Div" STYLE="display:none;">Section 2</DIV>
+    <DIV ID="GroupName3Div" STYLE="display:none;">Section 3</DIV>
+  </body>
+</html>
